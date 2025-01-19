@@ -1,8 +1,8 @@
 # LuminarCode ✨
 
-**Your local, open-source companion for next-level coding.**  
+**Your local, open-source companion for next-level coding.**
 
-> **Because great code deserves total freedom—no servers, no cloud, no compromise.**  
+> **Because great code deserves total freedom—no servers, no cloud, no compromise.**
 
 ## Why LuminarCode?
 
@@ -11,15 +11,19 @@ Imagine a coding partner that stays entirely on your machine, protecting your pr
 ### Key Highlights
 
 - **100% Local**  
-  Absolutely no external servers or cloud calls. Your code never leaves your environment.  
+  Absolutely no external servers or cloud calls. Your code never leaves your environment.
+  
 - **Open-Source Ethos**  
-  Developed under the MIT License, transparent, and built with community-driven innovation in mind.  
+  Developed under the LuminarCode Proprietary License, promoting transparency and community-driven innovation within defined boundaries.
+  
 - **Adaptive Model Selection**  
-  Automatically runs the best possible model based on your hardware specs. Enjoy peak performance without the guesswork.  
+  Automatically runs the best possible model based on your hardware specs. Enjoy peak performance without the guesswork.
+  
 - **Instant Inspiration**  
-  Get real-time coding assistance—snippets, suggestions, explanations—all processed locally.  
+  Get real-time coding assistance—snippets, suggestions, explanations—all processed locally.
+  
 - **Built for Everyone**  
-  Whether you’re a veteran dev or an enthusiastic newcomer, LuminarCode seamlessly adapts to your coding style.  
+  Whether you’re a veteran dev or an enthusiastic newcomer, LuminarCode seamlessly adapts to your coding style.
 
 ## The Vision
 
@@ -27,16 +31,18 @@ We’re on a mission to give every developer a powerful AI coding partner withou
 
 ## Get Involved 🚀
 
-- **Star this repo** to show your support (and spark our cosmic inspiration).  
-- **Watch** for updates as we shape LuminarCode into a local AI powerhouse.  
+- **Star this repo** to show your support (and spark our cosmic inspiration).
+- **Watch** for updates as we shape LuminarCode into a local AI powerhouse.
 - **Share** your ideas, open issues, or suggest improvements—this project is as much yours as it is ours.
 
 ## License
 
-LuminarCode is proudly released under the [LuminarCode Proprietary License (Version 1.0)](LICENSE). Feel free to explore, modify, and share—this journey is ours to build together.
+LuminarCode is proudly released under the [LuminarCode Proprietary License (Version 1.0)](LICENSE). Contributions are welcome and must adhere to the terms outlined in our [Contributor License Agreement (CLA)](CLA.md). Feel free to explore, modify, and share—this journey is ours to build together.
 
----
+## Installation
 
-Stay tuned as we craft the future of local, privacy-friendly coding. Your love (and ⭐) helps us shine brighter than ever!
+To get started with LuminarCode, follow these steps:
 
-**LuminarCode** — _Elevate your code, light up your workflow_ ✨
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/ahaad1/LuminaryCode.git

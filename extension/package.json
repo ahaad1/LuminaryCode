@@ -20,8 +20,37 @@
       {
         "command": "luminarycodeextension.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "local-copilot.startModel",
+        "title": "Start Local Model"
+      },
+      {
+        "command": "local-copilot.stopModel",
+        "title": "Stop Local Model"
+      },
+      {
+        "command": "luminarycodeextension.runLlamaTest",
+        "title": "Run Llama Test"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "luminaryCodeExtContainer",
+          "title": "Local Copilot",
+          "icon": "../media/icon.png"
+        }
+      ]
+    },
+    "views": {
+      "luminaryCodeExtContainer": [
+        {
+          "id": "luminaryCodeExtView",
+          "name": "Control Panel"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

@@ -1,0 +1,6 @@
+# extension/.gitignore
+node_modules/
+dist/
+*.map
+.vscode/
+.vscode-test.mjs

@@ -6,3 +6,4 @@ node_modules/
 Thumbs.dbdist/
 Thumbs.db
 *.vsix
+build/

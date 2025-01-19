@@ -38,11 +38,3 @@ We’re on a mission to give every developer a powerful AI coding partner withou
 ## License
 
 LuminarCode is proudly released under the [LuminarCode Proprietary License (Version 1.0)](LICENSE). Contributions are welcome and must adhere to the terms outlined in our [Contributor License Agreement (CLA)](CLA.md). Feel free to explore, modify, and share—this journey is ours to build together.
-
-## Installation
-
-To get started with LuminarCode, follow these steps:
-
-1. **Clone the Repository**  
-   ```bash
-   git clone https://github.com/ahaad1/LuminaryCode.git

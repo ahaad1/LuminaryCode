@@ -7,3 +7,5 @@ Thumbs.dbdist/
 Thumbs.db
 *.vsix
 build/
+venv/
+models/

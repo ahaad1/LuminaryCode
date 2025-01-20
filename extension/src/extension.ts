@@ -53,15 +53,19 @@ async function downloadModel(url: string, destPath: string) {
 
                 response.on('data', (chunk) => {
                     downloaded += chunk.length;
-                    if (totalSize) {
+
+                    if (totalSize && totalSize > 0) {
+                        // Если сервер вернул Content-Length, показываем нормальный %
                         const percentage = (downloaded / totalSize) * 100;
                         progress.report({
                             message: `${percentage.toFixed(1)}%`,
                             increment: (chunk.length / totalSize) * 100
                         });
                     } else {
+                        // Иначе — Content-Length неизвестен. Ставим "indeterminate" прогресс
                         progress.report({
-                            message: `${(downloaded / 1e6).toFixed(1)} MB downloaded`
+                            message: `${(downloaded / 1e6).toFixed(1)} MB downloaded`,
+                            increment: -1 // "бегущий" прогресс без конкретного % 
                         });
                     }
                 });
@@ -97,6 +101,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(startCommand, stopCommand);
 
     const extensionPath = context.extensionUri.fsPath;
+    vscode.window.showInformationMessage(`path ${context.extensionUri.fsPath}`);
     const modelDir = path.join(extensionPath, 'models');
 
     // !!! Поменяйте название файла под реальное, которое хотите скачать
@@ -135,19 +140,20 @@ export function deactivate() {
     }
 }
 
-async function startModel() {
+async function startModel(context: vscode.ExtensionContext) {
     if (modelProcess) {
         vscode.window.showInformationMessage('Модель уже запущена!');
         return;
     }
 
     // Предполагаем, что у нас есть llama-run (или любой бинарник для инференса)
-    const extensionPath = vscode.extensions.getExtension('ВАШ_ID_ИЗ_PACKAGE_JSON')?.extensionUri.fsPath;
+    // const extensionPath = vscode.extensions.getExtension('ВАШ_ID_ИЗ_PACKAGE_JSON')?.extensionUri.fsPath;
+    const extensionPath = context.extensionUri.fsPath;
     if (!extensionPath) {
         vscode.window.showErrorMessage('Не удалось определить extensionPath.');
         return;
     }
-
+    vscode.window.showInformationMessage(`path 1 ${context.extensionUri.fsPath}`);
     const llamaBin = path.join(extensionPath, 'bin', 'llama-run');  // поменяйте, если другое имя
 
     // Путь к модели

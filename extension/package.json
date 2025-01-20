@@ -38,14 +38,15 @@
       "activitybar": [
         {
           "id": "luminaryCodeExtContainer",
-          "title": "Local Copilot",
-          "icon": "../media/icon.png"
+          "title": "LuminaryCode",
+          "icon": "./media/icon_white.png"
         }
       ]
     },
     "views": {
       "luminaryCodeExtContainer": [
         {
+          "type": "webview",
           "id": "luminaryCodeExtView",
           "name": "Control Panel"
         }

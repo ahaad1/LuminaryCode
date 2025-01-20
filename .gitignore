@@ -8,4 +8,6 @@ Thumbs.db
 *.vsix
 build/
 venv/
+.venv/
 models/
+__pycache__/

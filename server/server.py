@@ -10,7 +10,7 @@ MODEL_NAME = "bigcode/starcoder"
 try:
     print(f"loading model {MODEL_NAME} from hugging face")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCasualLM.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
     model.eval()
     print(f"model {MODEL_NAME} loaded")
 except Exception as e:
@@ -32,20 +32,28 @@ async def health():
         raise HTTPException(status_code=500, detail=f"model {MODEL_NAME} not loaded")
     
 @app.post('/generate')
-async def generate():
+async def generate(request: GenerateRequest):
     if not model or not tokenizer:
         raise HTTPException(status_code=500, detail=f"model {MODEL_NAME} not loaded")
     try:
-        input = tokenizer(request.prompt, return_tensors="pt", truncuation=True, max_length=512)
+        inputs = tokenizer(
+            request.prompt,
+            return_tensors="pt",
+            truncation=True,
+            max_length=1024,
+            padding=True  # Добавляем padding
+        )
         
-        with torch.no_grad():
-            outputs = model.generate(
-                inputs.input_ids,
-                max_new_tokens=request.max_tokens,
-                temperature=request.temperature,
-                top_k=request.top_k,
-                pad_token_id=tokenizer.eos_token_id
-            )
+        
+        outputs = model.generate(
+            inputs.input_ids,
+            attention_mask=inputs.attention_mask,  # Передаём attention_mask
+            max_new_tokens=request.max_tokens,
+            temperature=request.temperature,  # Используется для управления креативностью
+            top_k=request.top_k,              # Используется для сэмплинга
+            pad_token_id=tokenizer.eos_token_id,
+            do_sample=True                    # Включаем режим стохастической генерации
+        )
         
         generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
         return {"response": generated_text}
